@@ -1,26 +1,8 @@
 <?php
 
-$movies = [
-  new Movie ('Il signore degli anelli', 'fantasy', 4.8),
-  new Movie ('Jurassic Park', 'Azione', 4.7),
-];
-var_dump($movies);
+require_once __DIR__ . '/db/db.php';
+require_once __DIR__ . '/models/Movie.php';
 
-class Movie {
-  public $name;
-  public $genre;
-  public $vote;
-
-  public function __construct( string $_name, string $_genre,  $_vote) {
-    $this->name = $_name;
-    $this->genre = $_genre;
-    $this->vote = $_vote;
-  }
-
-  public function getVote() {
-    return $this->vote = $_vote;
-  }
-};
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +19,7 @@ class Movie {
 </head>
 <body>
 
-<div class="container">
+<div class="container mt-5">
 <table class="table">
   <thead>
     <tr>
