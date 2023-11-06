@@ -1,24 +1,24 @@
 <?php
 
 $movies = [
-  new Movie ('Il signore degli anelli', 'fantasy', 2,8),
-  new Movie ('Jurassic Park', 'Azione', 2,7),
+  new Movie ('Il signore degli anelli', 'fantasy', 4.8),
+  new Movie ('Jurassic Park', 'Azione', 4.7),
 ];
 var_dump($movies);
 
 class Movie {
   public $name;
   public $genre;
-  public $time;
+  public $vote;
 
-  public function __construct( string $_name, string $_genre,  $_time) {
+  public function __construct( string $_name, string $_genre,  $_vote) {
     $this->name = $_name;
     $this->genre = $_genre;
-    $this->time = $_time;
+    $this->vote = $_vote;
   }
 
-  public function getTime() {
-    return $this->time = $_time;
+  public function getVote() {
+    return $this->vote = $_vote;
   }
 };
 ?>
@@ -43,7 +43,7 @@ class Movie {
     <tr>
       <th scope="col">Name</th>
       <th scope="col">Genre</th>
-      <th scope="col">Time</th>
+      <th scope="col">Vote</th>
     </tr>
   </thead>
   <tbody>
@@ -51,7 +51,7 @@ class Movie {
     <tr>
       <td><?php echo $movie->name ?></td>
       <td><?php echo $movie->genre ?></td>
-      <td><?php echo $movie->time ?></td>
+      <td><?php echo $movie->vote ?></td>
     </tr>
   <?php endforeach; ?>
 </table>
