@@ -1,17 +1,14 @@
 <?php
 
-class Movie {
-  public $name;
-  public $genre;
-  public $vote;
+require_once 'Production.php';
 
-  public function __construct( string $_name, string $_genre,  $_vote) {
-    $this->name = $_name;
-    $this->genre = $_genre;
-    $this->vote = $_vote;
+class Movie extends Production {
+  public $published_year;
+  public $running_time;
+  
+  public function __construct(string $_name, string $_genre, $_vote, $_published_year, $_running_time) {
+    parent::__construct($_name, $_genre, $_vote);
+    $this->published_year = $_published_year;
+    $this->running_time = $_running_time;
   }
-
-  public function getVote() {
-    return $this->vote = $_vote;
-  }
-};
+}
