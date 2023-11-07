@@ -15,4 +15,3 @@ class TvSerie extends Production {
     $this->number_of_seasons = $_number_of_seasons;
   }
 }
-?>

@@ -3,6 +3,14 @@
 require_once __DIR__ . '/models/Movie.php';
 require_once __DIR__ . '/db/db.php';
 
+require_once 'Movie.php';
+require_once 'TvSerie.php';
+
+$movie = new Movie('Il signore degli anelli', 'Fantasy', 4.8, 2001, 178);
+$tvSerie = new TvSerie('Breaking Bad', 'Drama', 9.5, 2008, 2013, 62, 5);
+$movie = new Movie('The Ring 2', 'Horror', 3.5, 2005, 110);
+$tvSerie = new TvSerie('Breaking Bad', 'Comedy', 9.5, 2005, 2013, 201, 9);
+
 ?>
 
 <!DOCTYPE html>
