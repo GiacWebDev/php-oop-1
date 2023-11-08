@@ -1,5 +1,6 @@
 <?php
 
+require_once __DIR__ . '/models/Production.php';
 require_once __DIR__ . '/models/TvSerie.php';
 require_once __DIR__ . '/models/Movie.php';
 require_once __DIR__ . '/db/db.php';
@@ -30,11 +31,11 @@ require_once __DIR__ . '/db/db.php';
     </tr>
   </thead>
   <tbody>
-  <?php foreach ($movies as $movie): ?>
+  <?php foreach ($productions as $production): ?>
     <tr>
-      <td><?php echo $movie->name ?></td>
-      <td><?php echo $movie->genre ?></td>
-      <td><?php echo $movie->vote ?></td>
+      <td><?php echo $production->name ?></td>
+      <td><?php echo $production->genre ?></td>
+      <td><?php echo $production->vote ?></td>
     </tr>
   <?php endforeach; ?>
 </table>
