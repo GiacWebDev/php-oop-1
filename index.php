@@ -28,6 +28,12 @@ require_once __DIR__ . '/db/db.php';
       <th scope="col">Name</th>
       <th scope="col">Genre</th>
       <th scope="col">Vote</th>
+      <th scope="col">Anno Pubblicazione</th>
+      <th scope="col">Durata</th>
+      <th scope="col">Anno primo ep.</th>
+      <th scope="col">Anno secondo ep.</th>
+      <th scope="col">n° episodi</th>
+      <th scope="col">n° stagioni</th>
     </tr>
   </thead>
   <tbody>
@@ -36,6 +42,12 @@ require_once __DIR__ . '/db/db.php';
       <td><?php echo $production->name ?></td>
       <td><?php echo $production->genre ?></td>
       <td><?php echo $production->vote ?></td>
+      <td><?php echo property_exists($production, 'published_year') ? $production->published_year : '-'; ?></td>
+      <td><?php echo property_exists($production, 'running_time') ? $production->running_time : '-'; ?></td>
+      <td><?php echo property_exists($production, 'aired_from_year') ? $production->aired_from_year : '-'; ?></td>
+      <td><?php echo property_exists($production, 'aired_to_year') ? $production->aired_to_year : '-'; ?></td>
+      <td><?php echo property_exists($production, 'number_of_episodes') ? $production->number_of_episodes : '-'; ?></td>
+      <td><?php echo property_exists($production, 'number_of_seasons') ? $production->number_of_seasons : '-'; ?></td>
     </tr>
   <?php endforeach; ?>
 </table>
