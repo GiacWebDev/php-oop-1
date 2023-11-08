@@ -3,6 +3,7 @@
 require_once __DIR__ . '/models/Production.php';
 require_once __DIR__ . '/models/TvSerie.php';
 require_once __DIR__ . '/models/Movie.php';
+require_once __DIR__ . '/models/Media.php';
 require_once __DIR__ . '/db/db.php';
 
 ?>
@@ -30,6 +31,7 @@ require_once __DIR__ . '/db/db.php';
         <div class="card">
 
           <div class="card-body">
+            <img src="img/<?php echo $production->image?->file_name ?? "movie_placeholder.jpg" ?>" class="card-img-top" alt="<?php echo $production->image?->name ?? " " ?>">
             <h5 class="card-title"><?php echo $production->name ?></h5>
             <h6 class="mb-2"><?php echo $production->genre ?></h6>
             <p class="card-text">Vote: <?php echo $production->vote ?></p>
