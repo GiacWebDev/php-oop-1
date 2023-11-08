@@ -22,36 +22,42 @@ require_once __DIR__ . '/db/db.php';
 <body>
 
 <div class="container mt-5">
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Genre</th>
-      <th scope="col">Vote</th>
-      <th scope="col">Anno Pubblicazione</th>
-      <th scope="col">Durata</th>
-      <th scope="col">Anno primo ep.</th>
-      <th scope="col">Anno secondo ep.</th>
-      <th scope="col">n° episodi</th>
-      <th scope="col">n° stagioni</th>
-    </tr>
-  </thead>
-  <tbody>
-  <?php foreach ($productions as $production): ?>
-    <tr>
-      <td><?php echo $production->name ?></td>
-      <td><?php echo $production->genre ?></td>
-      <td><?php echo $production->vote ?></td>
-      <!-- Per evitare errori di attributi non definiti nelle classi verifico e visualizzo solo se l'attributo è presente -->
-      <td><?php echo property_exists($production, 'published_year') ? $production->published_year : '-'; ?></td>
-      <td><?php echo property_exists($production, 'running_time') ? $production->running_time : '-'; ?></td>
-      <td><?php echo property_exists($production, 'aired_from_year') ? $production->aired_from_year : '-'; ?></td>
-      <td><?php echo property_exists($production, 'aired_to_year') ? $production->aired_to_year : '-'; ?></td>
-      <td><?php echo property_exists($production, 'number_of_episodes') ? $production->number_of_episodes : '-'; ?></td>
-      <td><?php echo property_exists($production, 'number_of_seasons') ? $production->number_of_seasons : '-'; ?></td>
-    </tr>
-  <?php endforeach; ?>
-</table>
+  <div class="row">
+
+    <?php foreach ($productions as $production): ?>
+
+      <div class="col-md-4">
+        <div class="card">
+
+          <div class="card-body">
+            <h5 class="card-title"><?php echo $production->name ?></h5>
+            <h6 class="mb-2"><?php echo $production->genre ?></h6>
+            <p class="card-text">Vote: <?php echo $production->vote ?></p>
+
+            <?php if (property_exists($production, 'published_year')): ?>
+              <p class="card-text">Anno Pubblicazione: <?php echo $production->published_year ?></p>
+            <?php endif; ?>
+            <?php if (property_exists($production, 'running_time')): ?>
+              <p class="card-text">Durata: <?php echo $production->running_time ?> min</p>
+            <?php endif; ?>
+            <?php if (property_exists($production, 'aired_from_year')): ?>
+              <p class="card-text">Anno primo ep.: <?php echo $production->aired_from_year ?></p>
+            <?php endif; ?>
+            <?php if (property_exists($production, 'aired_to_year')): ?>
+              <p class="card-text">Anno secondo ep.: <?php echo $production->aired_to_year ?></p>
+            <?php endif; ?>
+            <?php if (property_exists($production, 'number_of_episodes')): ?>
+              <p class="card-text">n° episodi: <?php echo $production->number_of_episodes ?></p>
+            <?php endif; ?>
+            <?php if (property_exists($production, 'number_of_seasons')): ?>
+              <p class="card-text">n° stagioni: <?php echo $production->number_of_seasons ?></p>
+            <?php endif; ?>
+
+          </div>
+        </div>
+      </div>
+    <?php endforeach; ?>
+  </div>
 </div>
   
 </body>
