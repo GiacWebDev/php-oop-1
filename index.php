@@ -69,6 +69,9 @@ require_once __DIR__ . '/db/db.php';
             <?php if (property_exists($production, 'number_of_seasons')): ?>
               <p class="card-text">n° stagioni: <?php echo $production->number_of_seasons ?></p>
             <?php endif; ?>
+            <?php if (method_exists($production, 'getDescription') && !empty($production->getDescription())): ?>
+              <p class="card-text"><?php echo $production->getDescription() ?></p>
+            <?php endif; ?>
 
           </div>
         </div>
