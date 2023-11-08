@@ -1,10 +1,16 @@
 <?php
 
+try {
+  
 require_once __DIR__ . '/models/Production.php';
 require_once __DIR__ . '/models/TvSerie.php';
 require_once __DIR__ . '/models/Movie.php';
 require_once __DIR__ . '/models/Media.php';
 require_once __DIR__ . '/db/db.php';
+
+} catch (Exception $e) {
+  $error = $e->getMessage();
+}
 
 ?>
 
@@ -25,13 +31,22 @@ require_once __DIR__ . '/db/db.php';
 <div class="container mt-5">
   <div class="row">
 
+  <!-- imposto l'errore nel caso sia presente  -->
+    <?php if(isset($error)): ?>
+    <div class="alert alert-danger" role="alert">
+      <?php echo $error ?>
+    </div>
+
+    <!-- altrimenti leggo il codice -->
+    <?php else: ?>
+
     <?php foreach ($productions as $production): ?>
 
       <div class="col-md-4">
         <div class="card">
 
           <div class="card-body">
-            <img src="img/<?php echo $production->image?->file_name ?? "movie_placeholder.jpg" ?>" class="card-img-top" alt="<?php echo $production->image?->name ?? " " ?>">
+            <img src="./img<?php echo $production->image?->file_name ?? "movie_placeholder.jpg" ?>" class="card-img-top" alt="<?php echo $production->image?->name ?? " " ?>">
             <h5 class="card-title"><?php echo $production->name ?></h5>
             <h6 class="mb-2"><?php echo $production->genre ?></h6>
             <p class="card-text">Vote: <?php echo $production->vote ?></p>
@@ -60,6 +75,7 @@ require_once __DIR__ . '/db/db.php';
       </div>
     <?php endforeach; ?>
   </div>
+  <?php endif; ?>
 </div>
   
 </body>
