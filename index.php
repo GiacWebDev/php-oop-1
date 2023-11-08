@@ -42,6 +42,7 @@ require_once __DIR__ . '/db/db.php';
       <td><?php echo $production->name ?></td>
       <td><?php echo $production->genre ?></td>
       <td><?php echo $production->vote ?></td>
+      <!-- Per evitare errori di attributi non definiti nelle classi verifico e visualizzo solo se l'attributo è presente -->
       <td><?php echo property_exists($production, 'published_year') ? $production->published_year : '-'; ?></td>
       <td><?php echo property_exists($production, 'running_time') ? $production->running_time : '-'; ?></td>
       <td><?php echo property_exists($production, 'aired_from_year') ? $production->aired_from_year : '-'; ?></td>
